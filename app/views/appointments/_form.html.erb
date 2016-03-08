@@ -1,0 +1,53 @@
+<%= form_for(@appointment) do |f| %>
+  <% if @appointment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
+
+      <ul>
+      <% @appointment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :patient_id %><br>
+    <%= f.collection_select :patient_id, Patient.all, :id, :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :provider_id %><br>
+    <%= f.collection_select :provider_id, Provider.all, :id, :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :appointment_date %><br>
+    <%= f.date_select :appointment_date %>
+  </div>
+  <div class="field">
+    <%= f.label :time_from %><br>
+    <%= f.time_select :time_from %>
+  </div>
+  <div class="field">
+    <%= f.label :time_to %><br>
+    <%= f.time_select :time_to %>
+  </div>
+  <div class="field">
+    <%= f.label :appointment_type %><br>
+    <%= f.text_field :appointment_type %>
+  </div>
+  <div class="field">
+    <%= f.label :appointment_reason %><br>
+    <%= f.text_area :appointment_reason %>
+  </div>
+  <div class="field">
+    <%= f.label :request_met %><br>
+    <%= f.check_box :request_met %>
+  </div>
+  <div class="field">
+    <%= f.label :comments %><br>
+    <%= f.text_area :comments %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

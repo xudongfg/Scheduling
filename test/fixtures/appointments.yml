@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  patient_id: 
+  provider_id: 
+  appointment_date: 2016-03-07
+  time_from: 2016-03-07 15:52:00
+  time_to: 2016-03-07 15:52:00
+  appointment_type: MyString
+  appointment_reason: MyText
+  request_met: false
+  comments: MyText
+
+two:
+  patient_id: 
+  provider_id: 
+  appointment_date: 2016-03-07
+  time_from: 2016-03-07 15:52:00
+  time_to: 2016-03-07 15:52:00
+  appointment_type: MyString
+  appointment_reason: MyText
+  request_met: false
+  comments: MyText

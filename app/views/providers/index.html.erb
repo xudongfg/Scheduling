@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Provider id</th>
       <th>First name</th>
       <th>Middle initial</th>
       <th>Last name</th>
@@ -16,6 +17,7 @@
   <tbody>
     <% @providers.each do |provider| %>
       <tr>
+        <td><%= provider.id %></td>
         <td><%= provider.first_name %></td>
         <td><%= provider.middle_initial %></td>
         <td><%= provider.last_name %></td>

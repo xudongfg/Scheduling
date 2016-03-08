@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Patient:</strong>
+  <%= @appointment.patient %>
+</p>
+
+<p>
+  <strong>Provider:</strong>
+  <%= @appointment.provider %>
+</p>
+
+<p>
+  <strong>Appointment date:</strong>
+  <%= @appointment.appointment_date %>
+</p>
+
+<p>
+  <strong>Time from:</strong>
+  <%= @appointment.time_from %>
+</p>
+
+<p>
+  <strong>Time to:</strong>
+  <%= @appointment.time_to %>
+</p>
+
+<p>
+  <strong>Appointment type:</strong>
+  <%= @appointment.appointment_type %>
+</p>
+
+<p>
+  <strong>Appointment reason:</strong>
+  <%= @appointment.appointment_reason %>
+</p>
+
+<p>
+  <strong>Request met:</strong>
+  <%= @appointment.request_met %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <%= @appointment.comments %>
+</p>
+
+<%= link_to 'Edit', edit_appointment_path(@appointment) %> |
+<%= link_to 'Back', appointments_path %>
