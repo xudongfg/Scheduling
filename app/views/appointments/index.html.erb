@@ -26,8 +26,8 @@
   <tbody>
     <% @appointments.each do |appointment| %>
       <tr>
-        <td><%= appointment.patient.last_name %>, <%= appointment.patient.first_name %></td>
-        <td><%= appointment.provider.last_name %>, <%= appointment.provider.first_name %></td>
+        <td><%= link_to appointment.patient.last_name + ", " + appointment.patient.first_name, patient_path(appointment.patient.id) %></td>
+        <td><%= link_to appointment.provider.last_name + ", " + appointment.provider.first_name, provider_path(appointment.provider.id) %></td>
         <td><%= appointment.appointment_date %></td>
         <td><%= appointment.time_from.strftime('%R') %></td>
         <td><%= appointment.time_to.strftime('%R') %></td>

@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<h1><%= @patient.last_name %>'s information</h1>
 <p>
   <strong>MRN:</strong>
   <%= @patient.id %>
@@ -45,7 +45,7 @@
   <%= @patient.zip == ""? "--" : @patient.zip %>
 </p>
 
-<strong>Patient's Appointment</strong>
+<h2><%= @patient.last_name %>'s appointment</h2>
 <table>
   <thead>
     <tr>
