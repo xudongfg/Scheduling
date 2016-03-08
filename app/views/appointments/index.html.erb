@@ -1,5 +1,4 @@
 <p id="notice"><%= notice %></p>
-
 <h1>Listing Appointments</h1>
 
 <table>
@@ -21,8 +20,8 @@
   <tbody>
     <% @appointments.each do |appointment| %>
       <tr>
-        <td><%= appointment.patient %></td>
-        <td><%= appointment.provider %></td>
+        <td><%= appointment.patient.last_name %></td>
+        <td><%= appointment.provider.last_name %></td>
         <td><%= appointment.appointment_date %></td>
         <td><%= appointment.time_from %></td>
         <td><%= appointment.time_to %></td>

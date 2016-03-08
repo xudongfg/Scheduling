@@ -5,6 +5,7 @@ class AppointmentsController < ApplicationController
   # GET /appointments.json
   def index
     @appointments = Appointment.all
+    # @appointments = Appointment.filter(params.slice(:appointment_date))
   end
 
   # GET /appointments/1
