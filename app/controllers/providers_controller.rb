@@ -1,5 +1,6 @@
 class ProvidersController < ApplicationController
   before_action :set_provider, only: [:show, :edit, :update, :destroy]
+  before_action :set_appointment, only: [:show, :edit, :update, :destroy]
 
   # GET /providers
   # GET /providers.json
@@ -70,5 +71,9 @@ class ProvidersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def provider_params
       params.require(:provider).permit(:first_name, :middle_initial, :last_name, :provider_specialty)
+    end
+
+    def set_appointment
+      @appointments = Appointment.where("provider_id = ?", params[:id])
     end
 end

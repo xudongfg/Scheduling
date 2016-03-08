@@ -1,5 +1,6 @@
 class PatientsController < ApplicationController
   before_action :set_patient, only: [:show, :edit, :update, :destroy]
+  before_action :set_appointment, only: [:show, :edit, :update, :destroy]
 
   # GET /patients
   # GET /patients.json
@@ -70,5 +71,9 @@ class PatientsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def patient_params
       params.require(:patient).permit(:first_name, :middle_initial, :last_name, :date_of_birth, :street, :city, :state, :zip, :cellphone_number, :home_number, :sex, :patient_type)
+    end
+
+    def set_appointment
+      @appointments = Appointment.where("patient_id = ?", params[:id])
     end
 end

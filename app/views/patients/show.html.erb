@@ -1,64 +1,83 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>MRN:</strong>
+  <%= @patient.id %>
+  <a> </a>
   <strong>First name:</strong>
   <%= @patient.first_name %>
-</p>
-
-<p>
+  <a> </a>
   <strong>Middle initial:</strong>
-  <%= @patient.middle_initial %>
-</p>
-
-<p>
+  <%= @patient.middle_initial == ""? "--" : @patient.middle_initial %>
+  <a> </a>
   <strong>Last name:</strong>
   <%= @patient.last_name %>
+  <a> </a>
+  <strong>Sex:</strong>
+  <%= @patient.sex %>
+  <a> </a>
+  <strong>Patient type:</strong>
+  <%= @patient.patient_type == ""? "--" : @patient.patient_type %>
 </p>
 
 <p>
   <strong>Date of birth:</strong>
   <%= @patient.date_of_birth %>
+  <a> </a>
+  <strong>Cellphone number:</strong>
+  <%= @patient.cellphone_number == ""? "--" : @patient.cellphone_number %>
+  <a> </a>
+  <strong>Home number:</strong>
+  <%= @patient.home_number == ""? "--" : @patient.home_number %>
 </p>
 
 <p>
   <strong>Street:</strong>
-  <%= @patient.street %>
-</p>
-
-<p>
+  <%= @patient.street == ""? "--" : @patient.street %>
+  <a> </a>
   <strong>City:</strong>
-  <%= @patient.city %>
-</p>
-
-<p>
+  <%= @patient.city == ""? "--" : @patient.city %>
+  <a> </a>
   <strong>State:</strong>
-  <%= @patient.state %>
-</p>
-
-<p>
+  <%= @patient.state == ""? "--" : @patient.state %>
+  <a> </a>
   <strong>Zip:</strong>
-  <%= @patient.zip %>
+  <%= @patient.zip == ""? "--" : @patient.zip %>
 </p>
 
-<p>
-  <strong>Cellphone number:</strong>
-  <%= @patient.cellphone_number %>
-</p>
+<strong>Patient's Appointment</strong>
+<table>
+  <thead>
+    <tr>
+      <th>Provider</th>
+      <th>Appointment date</th>
+      <th>Time from</th>
+      <th>Time to</th>
+      <th>Appointment type</th>
+      <th>Appointment reason</th>
+      <th>Request met</th>
+      <th>Comments</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 
-<p>
-  <strong>Home number:</strong>
-  <%= @patient.home_number %>
-</p>
-
-<p>
-  <strong>Sex:</strong>
-  <%= @patient.sex %>
-</p>
-
-<p>
-  <strong>Patient type:</strong>
-  <%= @patient.patient_type %>
-</p>
-
-<%= link_to 'Edit', edit_patient_path(@patient) %> |
-<%= link_to 'Back', patients_path %>
+  <tbody>
+    <% @appointments.each do |appointment| %>
+      <tr>
+        <td><%= appointment.provider.last_name %>, <%= appointment.provider.first_name %></td>
+        <td><%= appointment.appointment_date %></td>
+        <td><%= appointment.time_from.strftime('%R') %></td>
+        <td><%= appointment.time_to.strftime('%R') %></td>
+        <td><%= appointment.appointment_type == ""? "--" : appointment.appointment_type %></td>
+        <td><%= appointment.appointment_reason  == ""? "--" : appointment.appointment_reason %></td>
+        <td><%= appointment.request_met %></td>
+        <td><%= appointment.comments == ""? "--" : appointment.comments %></td>
+        <td><%= link_to 'Show', appointment %></td>
+        <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
+        <td><%= link_to 'Destroy', appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'Edit patient information', edit_patient_path(@patient) %> |
+<%= link_to 'Back to patients page', patients_path %>
