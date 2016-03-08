@@ -1,6 +1,12 @@
 <p id="notice"><%= notice %></p>
-<h1>Listing Appointments</h1>
-
+<h1>Manage Appointments</h1>
+<%= form_tag appointments_path, :method => 'get' do %>
+  <p>
+    <a>Insert last name or phrase to find related record: </a>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
 <table>
   <thead>
     <tr>
@@ -20,11 +26,11 @@
   <tbody>
     <% @appointments.each do |appointment| %>
       <tr>
-        <td><%= appointment.patient.last_name %></td>
-        <td><%= appointment.provider.last_name %></td>
+        <td><%= appointment.patient.last_name %>, <%= appointment.patient.first_name %></td>
+        <td><%= appointment.provider.last_name %>, <%= appointment.provider.first_name %></td>
         <td><%= appointment.appointment_date %></td>
-        <td><%= appointment.time_from %></td>
-        <td><%= appointment.time_to %></td>
+        <td><%= appointment.time_from.strftime('%R') %></td>
+        <td><%= appointment.time_to.strftime('%R') %></td>
         <td><%= appointment.appointment_type %></td>
         <td><%= appointment.appointment_reason %></td>
         <td><%= appointment.request_met %></td>
@@ -38,5 +44,4 @@
 </table>
 
 <br>
-
 <%= link_to 'New Appointment', new_appointment_path %>

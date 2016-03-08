@@ -2,12 +2,12 @@
 
 <p>
   <strong>Patient:</strong>
-  <%= @appointment.patient.last_name %>
+  <%= @appointment.patient.last_name %>, <%= @appointment.patient.first_name %>
 </p>
 
 <p>
   <strong>Provider:</strong>
-  <%= @appointment.provider.last_name %>
+  <%= @appointment.provider.last_name %>, <%= @appointment.provider.first_name %>
 </p>
 
 <p>
@@ -17,12 +17,12 @@
 
 <p>
   <strong>Time from:</strong>
-  <%= @appointment.time_from %>
+  <%= @appointment.time_from.strftime('%R') %>
 </p>
 
 <p>
   <strong>Time to:</strong>
-  <%= @appointment.time_to %>
+  <%= @appointment.time_to.strftime('%R') %>
 </p>
 
 <p>

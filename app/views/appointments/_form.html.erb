@@ -13,11 +13,11 @@
 
   <div class="field">
     <%= f.label :patient_id %><br>
-    <%= f.collection_select :patient_id, Patient.all, :id, :last_name %>
+    <%= f.collection_select :patient_id, Patient.all, :id, :full_name %>
   </div>
   <div class="field">
     <%= f.label :provider_id %><br>
-    <%= f.collection_select :provider_id, Provider.all, :id, :last_name %>
+    <%= f.collection_select :provider_id, Provider.all, :id, :full_name %>
   </div>
   <div class="field">
     <%= f.label :appointment_date %><br>
