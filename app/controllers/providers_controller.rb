@@ -74,6 +74,6 @@ class ProvidersController < ApplicationController
     end
 
     def set_appointment
-      @appointments = Appointment.where("provider_id = ?", params[:id])
+      @appointments = Appointment.where("provider_id = ?", params[:id]).order(appointment_date: :desc)
     end
 end

@@ -22,9 +22,9 @@
         <td><%= provider.middle_initial %></td>
         <td><%= provider.last_name %></td>
         <td><%= provider.provider_specialty %></td>
-        <td><%= link_to 'Show', provider %></td>
+        <td><%= link_to 'Show detail', provider %></td>
         <td><%= link_to 'Edit', edit_provider_path(provider) %></td>
-        <td><%= link_to 'Destroy', provider, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete record', provider, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

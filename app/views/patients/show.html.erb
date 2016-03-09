@@ -54,9 +54,7 @@
       <th>Time from</th>
       <th>Time to</th>
       <th>Appointment type</th>
-      <th>Appointment reason</th>
       <th>Request met</th>
-      <th>Comments</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -64,17 +62,15 @@
   <tbody>
     <% @appointments.each do |appointment| %>
       <tr>
-        <td><%= appointment.provider.last_name %>, <%= appointment.provider.first_name %></td>
+        <td><%= link_to appointment.provider.last_name + ", " + appointment.provider.first_name, provider_path(appointment.provider.id) %></td>
         <td><%= appointment.appointment_date %></td>
         <td><%= appointment.time_from.strftime('%R') %></td>
         <td><%= appointment.time_to.strftime('%R') %></td>
         <td><%= appointment.appointment_type == ""? "--" : appointment.appointment_type %></td>
-        <td><%= appointment.appointment_reason  == ""? "--" : appointment.appointment_reason %></td>
         <td><%= appointment.request_met %></td>
-        <td><%= appointment.comments == ""? "--" : appointment.comments %></td>
-        <td><%= link_to 'Show', appointment %></td>
-        <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
-        <td><%= link_to 'Destroy', appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show detail', appointment %></td>
+        <td><%= link_to 'Edit appointment', edit_appointment_path(appointment) %></td>
+        <td><%= link_to 'Delete record', appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

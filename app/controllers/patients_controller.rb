@@ -74,6 +74,6 @@ class PatientsController < ApplicationController
     end
 
     def set_appointment
-      @appointments = Appointment.where("patient_id = ?", params[:id])
+      @appointments = Appointment.where("patient_id = ?", params[:id]).order(appointment_date: :desc)
     end
 end
