@@ -14,7 +14,7 @@
   <%= @patient.last_name %>
   <a> </a>
   <strong>Sex:</strong>
-  <%= @patient.sex %>
+  <%= @patient.sex == ""? "--" : @patient.sex %>
   <a> </a>
   <strong>Patient type:</strong>
   <%= @patient.patient_type == ""? "--" : @patient.patient_type %>
